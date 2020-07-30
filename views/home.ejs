@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cookmaster - Home</title>
+  </head>
+  <body>
+    <h1>Receitas</h1>
+    <% if (user) { %>
+      <a href="/recipes/new">
+        <button>Nova receita</button>
+      </a>
+    <% } %>
+    <% if (message) { %>
+      <p>
+        <%= message %>
+      </p>
+    <% } %>
+    <ul>
+      <% recipes.forEach(({ id, title, authorName }) => { %>
+        <div>
+          <p><%= title %></p>
+          <p><%= authorName %></p>
+          <a
+            href=<%= `/recipes/${id}` %>
+          >
+            Ver mais
+          </a>
+        </div><br />
+      <% }) %>
+    </ul>
+  </body>
+</html>
